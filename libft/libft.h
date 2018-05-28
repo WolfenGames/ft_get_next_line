@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:44:03 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 16:31:22 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 16:32:16 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define ERROR			1
 # define TRUE           1
 # define FALSE          0
-# define BUFF_SIZE      10
 # define MALLCHECK(x)   if (!x) return (-1)
 # define EVEN(x)		(!(x % 2))
 # define IS_SPACE(x)    (x == ' ' || x == '\t' || x == '\r' || x == '\f')
