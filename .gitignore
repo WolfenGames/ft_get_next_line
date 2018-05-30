@@ -1,8 +1,5 @@
 *.o
 *.a
-*.sh
-./libft/*.c
 ./libft/*.o
 ./libft/*.sh
 ./libft/makefile
-libft.a
