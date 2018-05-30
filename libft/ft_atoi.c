@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:08:04 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 15:03:18 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/30 10:48:09 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static int		ft_setreturn(int num, size_t b, t_bool neg)
 {
-	if (b > 10 && neg)
+	if (b > 18 && neg)
 		return (0);
-	if (b > 10)
+	if (b > 18)
 		return (-1);
 	if (neg)
 		return (-num);
 	return (num);
 }
 
-int				ft_atoi(t_cstr str)
+int				ft_atoi(const char *str)
 {
 	size_t	i;
 	int		num;
@@ -37,8 +37,9 @@ int				ft_atoi(t_cstr str)
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r' || str[i] == '\v'
 			|| str[i] == '\n' || str[i] == '\f' || str[i] == '0')
 		i++;
-	if (str[i] == '-')
-		neg = TRUE;
+	neg = (str[i] == '-') ? TRUE : FALSE;
+	if ((str[i - 1] && str[i - 1] == '0') && (str[i] == '-' || str[i] == '+'))
+		return (0);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (ft_isdigit(str[i]))

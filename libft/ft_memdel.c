@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 14:59:42 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 14:09:04 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 08:49:49 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(t_lstvoid ap)
+void	ft_memdel(void **ap)
 {
 	if (!ap)
 		return ;

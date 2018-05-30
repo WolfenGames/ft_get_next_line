@@ -6,18 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 15:09:43 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 10:00:56 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/30 08:00:49 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_striter(t_str s, void (*f)(t_str))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	if (s && f)
-	{
 		while (*s)
 			f(s++);
-	}
-	return ;
 }

@@ -6,18 +6,18 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 17:41:59 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:58:20 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:30:13 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_str	ft_strrchr(t_cstr s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	t_str	s1;
+	char	*s1;
 
-	s1 = (t_str)s;
+	s1 = (char *)s;
 	i = 0;
 	while (s1[i])
 		i++;

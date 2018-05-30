@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 14:32:32 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:35:28 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 08:43:03 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_intminmax(int i)
+int		ft_intminmax(int i)
 {
 	return ((i >= MIN_INT && i <= MAX_INT));
 }

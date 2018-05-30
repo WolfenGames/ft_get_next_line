@@ -6,36 +6,56 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 11:19:27 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 10:30:21 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 15:01:38 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_lststr	ft_strsplit(t_cstr s, char c)
+static int	getwnbr(char const *s, char c)
 {
-	t_lststr	ret;
-	int			xc;
-	int			yc;
-	int			start;
+	int		nbw;
+	int		i;
 
-	if (!s || !c ||
-			!(ret = ft_memalloc(sizeof(t_str) * ft_wordcount(s, c) + 1)))
-		return (NULL);
-	xc = 0;
-	yc = 0;
-	while (s[xc])
+	i = 0;
+	nbw = 0;
+	while (s && *(s + i))
 	{
-		if (s[xc] == c)
-			xc++;
-		else
-		{
-			start = xc;
-			while (s[xc] && s[xc] != c)
-				xc++;
-			ret[yc++] = ft_strsub(s, start, xc - start);
-		}
+		while (s && *(s + i) == c)
+			i++;
+		if (*(s + i))
+			nbw++;
+		while (*(s + i) && *(s + i) != c)
+			i++;
 	}
-	ret[yc] = 0;
+	return (nbw);
+}
+
+char		**ft_strsplit(const char *s, char c)
+{
+	char	**ret;
+	size_t	start;
+	size_t	end;
+	int		i;
+
+	start = 0;
+	end = 0;
+	i = 0;
+	if (!s || !c)
+		return (NULL);
+	if (!(ret = ft_memalloc(sizeof(ret) * getwnbr(s, c) + 1)))
+		return (NULL);
+	while (getwnbr(s, c) - i)
+	{
+		while (s && *(s + start) && *(s + start) == c)
+			start++;
+		while (s && *(s + start + end) && *(s + start + end) != c)
+			end++;
+		ret[i] = ft_strsub(s, start, end);
+		start += end;
+		end = 0;
+		i++;
+	}
+	ret[i] = 0;
 	return (ret);
 }

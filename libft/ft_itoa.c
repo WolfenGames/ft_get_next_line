@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 19:29:59 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 15:03:35 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/30 11:24:55 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,15 @@ static size_t	ft_charcount(long n)
 	return (i);
 }
 
-static int		ft_ifneg(int n)
-{
-	if (n < 0)
-		return (1);
-	else
-		return (0);
-}
-
-t_str			ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	long	l;
 	size_t	cnt;
-	t_str	str;
+	char	*str;
 	int		neg;
 
 	l = n;
-	neg = ft_ifneg(l);
+	neg = (l < 0) ? 1 : 0;
 	cnt = ft_charcount(l);
 	str = ft_strnew(cnt + neg);
 	if (str == NULL)

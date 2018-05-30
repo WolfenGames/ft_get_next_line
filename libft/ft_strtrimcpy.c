@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 12:23:22 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 17:12:30 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:31:18 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_str	ft_strtrimcpy(t_str ret, t_cstr s, int start, int end)
+char	*ft_strtrimcpy(char *ret, const char *s, int start, int end)
 {
 	int		c;
 

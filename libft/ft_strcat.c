@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/08 16:59:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:52:24 by jwolf            ###   ########.fr       */
+/*   Created: 2018/05/28 09:48:08 by jwolf             #+#    #+#             */
+/*   Updated: 2018/05/28 09:48:20 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_str	ft_strcat(t_str dest, t_cstr src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	size_t	o;
 	size_t	i;
 
 	o = 0;
-	i = ft_strlen((t_str)dest);
+	i = ft_strlen(dest);
 	while (src[o])
 	{
 		dest[i] = src[o];

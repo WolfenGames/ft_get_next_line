@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 19:31:14 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:36:33 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 08:44:50 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_isprint(int c)
+int		ft_isprint(int c)
 {
 	return ((c > 31 && c < 127));
 }

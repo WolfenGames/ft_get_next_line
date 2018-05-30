@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 15:05:24 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 09:53:29 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:02:45 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(t_lststr as)
+void	ft_strdel(char **as)
 {
 	if (as)
 	{

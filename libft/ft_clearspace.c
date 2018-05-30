@@ -6,24 +6,19 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/23 12:19:45 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 16:30:49 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/30 09:02:46 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_clearspace(t_cstr s, int c)
+int		ft_clearspace(const char *s, int c)
 {
 	if (c == 0)
-	{
 		while (s[c] == ' ' || s[c] == '\t' || c[s] == '\n')
 			c++;
-		return (c);
-	}
 	else
-	{
 		while (s[c] == ' ' || s[c] == '\t' || s[c] == '\n' || s[c] == '\0')
 			c--;
-		return (c);
-	}
+	return (c);
 }

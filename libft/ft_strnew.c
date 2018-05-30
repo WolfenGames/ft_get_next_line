@@ -6,15 +6,15 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 15:02:58 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:57:24 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:35:19 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_str	ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
-	t_str	str;
+	char	*str;
 
 	if ((str = ft_memalloc(size + 1)) == NULL)
 		return (NULL);

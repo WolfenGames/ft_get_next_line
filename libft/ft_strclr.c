@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 15:07:28 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 09:58:35 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:01:27 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(t_str s)
+void	ft_strclr(char *s)
 {
 	if (!s)
 		return ;

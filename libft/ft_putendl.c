@@ -6,14 +6,14 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 09:27:07 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:50:58 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 08:56:04 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(t_cstr str)
+void	ft_putendl(const char *str)
 {
-	ft_putstr((t_str)str);
+	ft_putstr((char *)str);
 	ft_putchar('\n');
 }

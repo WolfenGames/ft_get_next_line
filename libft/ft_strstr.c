@@ -6,21 +6,21 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:24:13 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:59:00 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:49:42 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_str	ft_strstr(t_cstr hay, t_cstr needle)
+char	*ft_strstr(const char *hay, const char *needle)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	if (ft_strlen((t_str)needle) == 0)
-		return ((t_str)hay);
+	if (ft_strlen((char *)needle) == 0)
+		return ((char *)hay);
 	while (hay[i])
 	{
 		while (needle[j])
@@ -34,7 +34,7 @@ t_str	ft_strstr(t_cstr hay, t_cstr needle)
 			}
 		}
 		if (needle[j] == '\0')
-			return ((t_str)hay + i);
+			return ((char *)hay + i);
 		i++;
 	}
 	return (NULL);

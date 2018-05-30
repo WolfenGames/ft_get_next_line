@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 00:42:36 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/24 10:05:17 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:04:16 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(t_cstr s1, t_cstr s2)
+int		ft_strequ(const char *s1, const char *s2)
 {
 	if (!s1 || !s2)
 		return (0);

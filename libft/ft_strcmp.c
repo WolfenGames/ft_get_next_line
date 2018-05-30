@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 18:01:07 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/23 13:53:08 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/28 09:01:56 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(t_cstr s1, t_cstr s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 == *s2++)
 	{
