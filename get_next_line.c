@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/31 09:23:34 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/31 13:32:53 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ static char		*joinchr(char *s1, char c)
 	if (!s1 || !c)
 		return (NULL);
 	j = ft_strlen(s1);
-	new = ft_strnew(j + 1);
-	if (!new)
+	if (!(new = ft_strnew(j + 1)))
 		return (NULL);
 	i = -1;
 	while (++i < j)
@@ -81,7 +80,7 @@ int				get_next_line(int fd, char **line)
 	t_list			*c_file;
 
 	if (fd < 0 || !line || read(fd, buf, 0) < 0)
-		return (0);
+		return (-1);
 	c_file = get_file(&files, fd);
 	MALLCHECK((*line = ft_strnew(1)));
 	while ((ret = read(fd, buf, BUFF_SIZE)))
@@ -97,4 +96,4 @@ int				get_next_line(int fd, char **line)
 	(i < (int)ft_strlen(c_file->content)) ? c_file->content += (i + 1) :
 		ft_strclr(c_file->content);
 	return (1);
-}
+} 

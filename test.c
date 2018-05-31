@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:35:05 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/31 09:25:18 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/31 11:37:46 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,36 @@ int		ft_fdopen(char *file)
 	int		fd;
 	char	**data;
 	char	**tst;
+	char	*tmp;
 	int		i;
+	int		size;
+	int		count;
 
+	size = 0;
+	count = 0;
 	i = 0;
 	data = ft_memalloc(sizeof(char *) * 1024);
 	tst = ft_memalloc(sizeof(char *) * 1024);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		return (-1);
 	while (get_next_line(fd, data))
 	{
 		tst[i] = ft_strnew(ft_strlen(*data));
 		tst[i] = ft_strdup(*data);
 		i++;
 	}
+	i = 0;
 	while (*tst)
 	{
-		ft_putendl(*tst++);
+		tmp = *tst;
+		if (!ft_strequ(tmp, *++tst))
+			count++;
+		i++;
 	}
+	ft_putendl(ft_itoa(count));
+	ft_putendl(ft_itoa(i));
+	ft_memdel((void **)tst);
 	close(fd);
 	return (1);
 }
