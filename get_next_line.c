@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/30 18:16:30 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/05/31 09:23:34 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static	int		contentcopy(char **dst, char *src, char c)
 static t_list	*get_file(t_list **file, int fd)
 {
 	t_list	*tmp;
-	
+
 	tmp = *file;
 	while (tmp)
 	{
@@ -80,7 +80,7 @@ int				get_next_line(int fd, char **line)
 	static t_list	*files;
 	t_list			*c_file;
 
-	if (fd < 0 || !line)
+	if (fd < 0 || !line || read(fd, buf, 0) < 0)
 		return (0);
 	c_file = get_file(&files, fd);
 	MALLCHECK((*line = ft_strnew(1)));
@@ -89,10 +89,12 @@ int				get_next_line(int fd, char **line)
 		buf[ret] = '\0';
 		MALLCHECK((c_file->content = ft_strjoin(c_file->content, buf)));
 		if (ft_strrchr(buf, '\n'))
-				break ;
+			break ;
 	}
+	if (ret < BUFF_SIZE && !ft_strlen(c_file->content))
+		return (0);
 	i = contentcopy(line, c_file->content, '\n');
 	(i < (int)ft_strlen(c_file->content)) ? c_file->content += (i + 1) :
 		ft_strclr(c_file->content);
-	return (1);	
+	return (1);
 }
