@@ -6,11 +6,11 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:35:05 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 09:57:04 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 11:36:36 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft/includes/libft.h"
 #include "get_next_line.h"
 #include <stdio.h>
 

@@ -1,5 +1,8 @@
 *.o
-*.a
+./libft/srcs/*.o
+./libft/libft.a
 ./libft/*.o
 ./libft/*.sh
 ./libft/makefile
+test_gnl
+a.out

@@ -6,12 +6,12 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 10:13:03 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 11:32:02 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft/libft.h"
+#include "libft/includes/libft.h"
 
 static char		*strcat_c(char *s1, char c)
 {
