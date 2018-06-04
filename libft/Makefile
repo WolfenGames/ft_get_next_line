@@ -37,10 +37,9 @@ C = gcc
 %.o:	%.c
 	@echo "\033[1;36;m[Compiling $<]\t\t\t\033[0m: " | tr -d '\n'
 	$(C) -c $< -I.
+	mv *.o $(SRC)
 
 $(NAME): $(OBJECTS)
-	@echo "\033[1;30;m[MOVING]\033[0m" | tr -d '\n'
-	mv *.o $(SRC)
 	@echo "\033[1;35;m[Linking] \t\t\033[0m: " | tr -d '\n'
 	ar r $(NAME) $(OBJECTS)
 	@echo "\033[1;32;m[Success] \t\t\t\033[0m" 
