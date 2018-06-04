@@ -6,13 +6,13 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:11:10 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 12:10:51 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 16:30:45 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE		99999
+# define BUFF_SIZE	    32
 
 # include <unistd.h>
 # include <fcntl.h>
