@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:35:05 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/31 11:37:46 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 07:47:53 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 int		ft_fdopen(char *file)
 {
 	int		fd;
+	int		fd2;
+	int		fd3;
 	char	**data;
 	char	**tst;
 	char	*tmp;
@@ -30,6 +32,8 @@ int		ft_fdopen(char *file)
 	data = ft_memalloc(sizeof(char *) * 1024);
 	tst = ft_memalloc(sizeof(char *) * 1024);
 	fd = open(file, O_RDONLY);
+	fd2 = open("test.txt", O_RDONLY);
+	fd3 = open("get_next_line.c", O_RDONLY);
 	if (fd == -1)
 		return (-1);
 	while (get_next_line(fd, data))
@@ -38,10 +42,19 @@ int		ft_fdopen(char *file)
 		tst[i] = ft_strdup(*data);
 		i++;
 	}
+	while (get_next_line(fd2, data))
+	{
+		ft_putendl("Reading...");
+	}
+	while (get_next_line(fd3, data))
+	{
+		ft_putendl("Reading");
+	}
 	i = 0;
 	while (*tst)
 	{
 		tmp = *tst;
+		ft_putendl(*tst);
 		if (!ft_strequ(tmp, *++tst))
 			count++;
 		i++;

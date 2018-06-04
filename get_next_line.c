@@ -6,14 +6,14 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/05/31 13:32:53 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 07:42:34 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft/libft.h"
 
-static char		*joinchr(char *s1, char c)
+static char		*strcat_c(char *s1, char c)
 {
 	char	*new;
 	size_t	i;
@@ -47,7 +47,7 @@ static	int		contentcopy(char **dst, char *src, char c)
 		return (0);
 	while (src[cc] && cc < i)
 	{
-		if (!(*dst = joinchr(*dst, src[cc])))
+		if (!(*dst = strcat_c(*dst, src[cc])))
 			return (0);
 		cc++;
 	}
