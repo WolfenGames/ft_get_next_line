@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:44:03 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 12:01:58 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 12:17:50 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define ERROR			1
 # define TRUE           1
 # define FALSE          0
-# define BUFF_SIZE      10
+# define CON_BREAK(x)	if (x) break
 # define SUCC_CHECK(x)	if (x) return (0)
 # define MALLCHECK(x)	if (!x) return
 # define MALLCHECK_I(x) if (!x) return (-1)
