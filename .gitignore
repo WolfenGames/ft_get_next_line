@@ -4,5 +4,5 @@
 ./libft/*.o
 ./libft/*.sh
 ./libft/makefile
-test_gnl
-a.out
+./test_gnl
+./a.out
