@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 16:11:10 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 10:11:01 by jwolf            ###   ########.fr       */
+/*   Created: 2018/02/09 15:24:13 by jwolf             #+#    #+#             */
+/*   Updated: 2018/06/04 10:40:34 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE	32
+#include "../includes/libft.h"
 
-# include <unistd.h>
-# include <fcntl.h>
+char	*ft_strnstr(const char *hay, const char *needle, size_t n)
+{
+	size_t		i;
+	size_t		j;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (!*needle)
+		return ((char *)hay);
+	i = 0;
+	while (hay[i] != '\0' && i < n)
+	{
+		j = 0;
+		while (hay[i + j] && i + j < n && needle[i] && hay[i + j] == needle[j])
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)(hay + i));
+		i++;
+	}
+	return (NULL);
+}

@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 07:42:34 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 10:13:03 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@ static char		*strcat_c(char *s1, char c)
 {
 	char	*new;
 	size_t	i;
-	size_t	j;
 
-	if (!s1 || !c)
-		return (NULL);
-	j = ft_strlen(s1);
-	if (!(new = ft_strnew(j + 1)))
-		return (NULL);
+	STRCHECK((s1 || c));
+
+	MALLCHECK_N((new = ft_strnew(ft_strlen(s1) + 1)));
 	i = -1;
-	while (++i < j)
+	while (++i < ft_strlen(s1))
 		*(new + i) = *(s1 + i);
 	*(new + i) = c;
 	return (new);
@@ -40,8 +37,7 @@ static	int		contentcopy(char **dst, char *src, char c)
 	i = -1;
 	cc = 0;
 	while (src[++i])
-		if (src[i] == c)
-			break ;
+		CON_BREAK(src[i] == c);
 	pos = i;
 	if (!(*dst = ft_strnew(i)))
 		return (0);
@@ -82,11 +78,11 @@ int				get_next_line(int fd, char **line)
 	if (fd < 0 || !line || read(fd, buf, 0) < 0)
 		return (-1);
 	c_file = get_file(&files, fd);
-	MALLCHECK((*line = ft_strnew(1)));
+	MALLCHECK_I((*line = ft_strnew(1)));
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[ret] = '\0';
-		MALLCHECK((c_file->content = ft_strjoin(c_file->content, buf)));
+		MALLCHECK_I((c_file->content = ft_strjoin(c_file->content, buf)));
 		if (ft_strrchr(buf, '\n'))
 			break ;
 	}

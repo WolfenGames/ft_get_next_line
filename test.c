@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:35:05 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 07:47:53 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 09:57:04 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,21 @@ int		ft_fdopen(char *file)
 	data = ft_memalloc(sizeof(char *) * 1024);
 	tst = ft_memalloc(sizeof(char *) * 1024);
 	fd = open(file, O_RDONLY);
-	fd2 = open("test.txt", O_RDONLY);
-	fd3 = open("get_next_line.c", O_RDONLY);
 	if (fd == -1)
 		return (-1);
+	while (i < 3)
+	{
+		if (get_next_line(fd, data))
+		{
+			tst[i++] = ft_strdup(*data);
+		}
+	}
+	while (*tst)
+		ft_putendl(*tst++);
 	while (get_next_line(fd, data))
 	{
-		tst[i] = ft_strnew(ft_strlen(*data));
-		tst[i] = ft_strdup(*data);
-		i++;
+		ft_putendl(ft_strjoin("WeeWooo ::", *data));
 	}
-	while (get_next_line(fd2, data))
-	{
-		ft_putendl("Reading...");
-	}
-	while (get_next_line(fd3, data))
-	{
-		ft_putendl("Reading");
-	}
-	i = 0;
-	while (*tst)
-	{
-		tmp = *tst;
-		ft_putendl(*tst);
-		if (!ft_strequ(tmp, *++tst))
-			count++;
-		i++;
-	}
-	ft_putendl(ft_itoa(count));
-	ft_putendl(ft_itoa(i));
 	ft_memdel((void **)tst);
 	close(fd);
 	return (1);
