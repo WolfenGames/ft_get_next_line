@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 11:32:02 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/04 12:01:52 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,7 @@ int				get_next_line(int fd, char **line)
 		if (ft_strrchr(buf, '\n'))
 			break ;
 	}
-	if (ret < BUFF_SIZE && !ft_strlen(c_file->content))
-		return (0);
+	SUCC_CHECK((ret < BUFF_SIZE && !ft_strlen(c_file->content));
 	i = contentcopy(line, c_file->content, '\n');
 	(i < (int)ft_strlen(c_file->content)) ? c_file->content += (i + 1) :
 		ft_strclr(c_file->content);
