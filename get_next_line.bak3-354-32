@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/05 13:12:10 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/05 12:27:32 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ int				get_next_line(int fd, char **line)
 		tmp_str = c_file->content;
 		buf[ret] = '\0';
 		MALLCHECK_I((c_file->content = ft_strjoin(c_file->content, buf)));
-		if (tmp_str != NULL)
-			free(tmp_str);
 		CON_BREAK(ft_strrchr(buf, '\n'));
 	}
 	SUCC_CHECK((ret < BUFF_SIZE && !ft_strlen(c_file->content)));
