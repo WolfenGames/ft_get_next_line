@@ -6,14 +6,14 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:11:10 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/05 14:36:05 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/05 14:42:13 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE	    8
-# define FD_MAX			100
+# define BUFF_SIZE	    32
+# define FD_MAX			50	
 
 # include <unistd.h>
 # include <fcntl.h>
