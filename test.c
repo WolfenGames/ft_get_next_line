@@ -6,7 +6,11 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/30 15:35:05 by jwolf             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/06/05 10:31:54 by jwolf            ###   ########.fr       */
+=======
+/*   Updated: 2018/06/04 16:32:13 by jwolf            ###   ########.fr       */
+>>>>>>> 682e1876475e25ee4725d05ea890e415befd3572
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +22,30 @@ int		ft_fdopen(char *file)
 {
 	int		fd;
 	char	**data;
+<<<<<<< HEAD
+=======
+	char	**tst;
+>>>>>>> 682e1876475e25ee4725d05ea890e415befd3572
 	int		i;
-	int		size;
-	int		count;
 
-	size = 0;
-	count = 0;
 	i = 0;
 	data = ft_memalloc(sizeof(char *) * 1024);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (-1);
 	while (get_next_line(fd, data))
+<<<<<<< HEAD
 	{	
 		ft_putendl(*data);
 	}
+=======
+	{
+			tst[i++] = ft_strdup(*data);
+	}
+	while (*tst)
+		ft_putendl(*tst++);
+	ft_memdel((void **)tst);
+>>>>>>> 682e1876475e25ee4725d05ea890e415befd3572
 	close(fd);
 	return (1);
 }
