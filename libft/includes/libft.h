@@ -30,6 +30,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 typedef	int			t_bool;
 typedef	struct		s_list

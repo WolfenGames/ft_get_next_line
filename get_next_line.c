@@ -37,9 +37,9 @@ int				get_next_line(const int fd, char **line)
 	if (fd < 0 || fd > FD_MAX || !line || !(*line = ft_strnew(BUFF_SIZE + 1)))
 		return (-1);
 	if (buff[fd][0] != '\0')
-		*line = ft_strdup(buff[fd]);
+		*line = ft_strcpy(*line, buff[fd]);
 	ft_bzero(buff[fd], BUFF_SIZE);
-	while (!(ft_strrchr(*line, '\n')) && error > 0)
+	while (!(ft_strchr(*line, '\n')) && error > 0)
 	{
 		if ((error = read(fd, buff[fd], BUFF_SIZE)) > 0)
 		{
