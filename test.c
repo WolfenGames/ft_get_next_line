@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap_bits.c                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/24 16:03:35 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 09:02:31 by jwolf            ###   ########.fr       */
+/*   Created: 2018/06/21 12:23:51 by jwolf             #+#    #+#             */
+/*   Updated: 2018/06/21 12:23:52 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
-unsigned char	ft_swap_bits(unsigned char octect)
+int     main(int ac, char **av)
 {
-	return ((octect >> 4) + (octect << 4));
+    int     fd;
+    char    *line;
+    char    *temp;
+
+    if (ac != 2)
+        return (-1);
+    fd = open(av[1], O_RDONLY);
+    while (get_next_line(fd, &line))
+    {
+        temp = line;
+        ft_putendl(line);
+        free(temp);
+    }
+    if (line)
+        free(line);
+    close(fd);
+    return (0);
 }

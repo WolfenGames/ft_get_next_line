@@ -4,9 +4,9 @@
 
 NAME = libft.a
 
-CFLAGS += -Wextra -Wall -Werror -I./inlcudes
+CFLAGS += -Wextra -Wall -Werror -I./includes
 
-SRC = srcs/
+SRC = ./srcs/
 
 SOURCES = $(SRC)ft_memset.c $(SRC)ft_bzero.c $(SRC)ft_memcpy.c \
 		  $(SRC)ft_memccpy.c $(SRC)ft_memmove.c $(SRC)ft_memchr.c \
@@ -28,31 +28,35 @@ SOURCES = $(SRC)ft_memset.c $(SRC)ft_bzero.c $(SRC)ft_memcpy.c \
 		  $(SRC)ft_putnbr_fd.c $(SRC)ft_lstnew.c $(SRC)ft_lstdelone.c \
 		  $(SRC)ft_lstdel.c $(SRC)ft_lstadd.c $(SRC)ft_lstiter.c \
 		  $(SRC)ft_lstmap.c $(SRC)ft_intminmax.c $(SRC)ft_strtrimcpy.c \
-		  $(SRC)ft_clearspace.c $(SRC)ft_print_memory.c
+		  $(SRC)ft_clearspace.c $(SRC)ft_print_memory.c $(SRC)ft_wordcount.c \
+		  $(SRC)ft_putendl_i.c $(SRC)ft_putendl_c.c $(SRC)ft_putendl_c_fd.c \
+		  $(SRC)ft_putendl_i_fd.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
 C = gcc
 
 %.o:	%.c
-	@echo "\033[1;36;m[Compiling $<]\t\t\t\033[0m: " | tr -d '\n'
-	$(C) -c $< -I.
-	mv *.o $(SRC)
+	@echo "\033[1;36;m[Compiling $<]\t\t\t\033[0m"
+	@$(C) $(CFLAGS) -c $< -I.
+	@mv *.o $(SRC)
 
 $(NAME): $(OBJECTS)
-	@echo "\033[1;35;m[Linking] \t\t\033[0m: " | tr -d '\n'
-	ar r $(NAME) $(OBJECTS)
-	@echo "\033[1;32;m[Success] \t\t\t\033[0m" 
-	ranlib $(NAME)
+	@echo "\033[1;35;m[Linking]\033[0m"
+	@ar r $(NAME) $(OBJECTS)
+	@echo "\033[1;32;m[Success] \t\t\t\033[0m"  
+	@ranlib $(NAME)
 	@echo "\033[1;34;m[RUNUNG RANLIB] \t\t\033[0m"
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJECTS)
+	@echo "\033[1;36;m[Cleaning]\033[0m"
+	@rm -rf $(OBJECTS)
 
 fclean: clean
-	rm -rf $(NAME)
+	@echo "\033[1;30;m[Full clean]\033[0m"
+	@rm -rf $(NAME)
 
 re: fclean all
 

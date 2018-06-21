@@ -10,26 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-
-static int	getwnbr(char const *s, char c)
-{
-	int		nbw;
-	int		i;
-
-	i = 0;
-	nbw = 0;
-	while (s && *(s + i))
-	{
-		while (s && *(s + i) == c)
-			i++;
-		if (*(s + i))
-			nbw++;
-		while (*(s + i) && *(s + i) != c)
-			i++;
-	}
-	return (nbw);
-}
+#include "libft.h"
 
 char		**ft_strsplit(const char *s, char c)
 {
@@ -42,8 +23,9 @@ char		**ft_strsplit(const char *s, char c)
 	end = 0;
 	i = 0;
 	MALLCHECK_N((s || c));
-	MALLCHECK_N((ret = ft_memalloc(sizeof(ret) * getwnbr(s, c) + 1)));
-	while (getwnbr(s, c) - i)
+	if (!(ret = (char **)ft_memalloc(sizeof(ret) * ft_wordcount(s, c) + 1)))
+		return (NULL);
+	while (ft_wordcount(s, c) - i)
 	{
 		while (s && *(s + start) && *(s + start) == c)
 			start++;

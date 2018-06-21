@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:44:03 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 12:44:45 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/21 06:58:45 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define ERROR			1
 # define TRUE           1
 # define FALSE          0
-# define CON_BREAK(x)	if (x) break
 # define SUCC_CHECK(x)	if (x) return (0)
 # define MALLCHECK(x)	if (!x) return
 # define MALLCHECK_I(x) if (!x) return (-1)
@@ -26,7 +25,7 @@
 # define STRCHECK(str)	if (!str) return (NULL)
 # define EVEN(x)		(!(x % 2))
 # define IS_SPACE(x)    (x == ' ' || x == '\t' || x== '\n')
-# define ABS(x)			((x < 0) ? x : -x)
+# define ABS(x)			((x < 0) ? (-x) : x)
 
 # include <string.h>
 # include <unistd.h>
@@ -49,10 +48,14 @@ void				ft_memdel(void **ap);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
+void				ft_putendl_c(char const *dest, char const *src);
+void				ft_putendl_i(char const *s, int a);
 void				ft_putendl_fd(char const *s, int fd);
+void				ft_putendl_c_fd(char const *dest, const char *src, int fd);
+void				ft_putendl_i_fd(char const *s, int a, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_putstr(char *str);
+void				ft_putstr(const char *str);
 void				ft_putstr_fd(const char *s, int fd);
 void				ft_printbits(unsigned char octect);
 void				ft_printmemory(void *add, size_t size);
@@ -77,6 +80,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strnequ(const char *s1, const char *s2, size_t n);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_wordcount(const char *s, char c);
 
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlen(const char *s1);
@@ -105,8 +109,6 @@ char				*ft_strrchr(const char *str, int c);
 char				*ft_strstr(const char *hay, const char *needle);
 char				*ft_strsub(const char *s1, unsigned int start, size_t len);
 char				*ft_strtrim(const char *s);
-
-unsigned char		ft_swap_bits(unsigned char octet);
 
 char				**ft_strsplit(const char *s, char c);
 

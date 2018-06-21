@@ -6,12 +6,11 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/06 08:47:53 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/21 07:00:00 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft/includes/libft.h"
 
 static int		copyline(char *line, char *buf)
 {
@@ -21,7 +20,9 @@ static int		copyline(char *line, char *buf)
 	while (line[count] != '\n' && line[count])
 		count++;
 	if (ft_strlen(line) > count + 1)
+	{
 		buf = ft_strcpy(buf, &(line[count + 1]));
+	}
 	line[count] = '\0';
 	return (1);
 }
@@ -36,18 +37,18 @@ int				get_next_line(const int fd, char **line)
 	if (fd < 0 || fd > FD_MAX || !line || !(*line = ft_strnew(BUFF_SIZE + 1)))
 		return (-1);
 	if (buff[fd][0] != '\0')
-		*line = ft_strcpy(*line, buff[fd]);
+		*line = ft_strdup(buff[fd]);
 	ft_bzero(buff[fd], BUFF_SIZE);
-	while (!(ft_strchr(*line, '\n')) && error > 0)
+	while (!(ft_strrchr(*line, '\n')) && error > 0)
 	{
-		error = read(fd, buff[fd], BUFF_SIZE);
-		if (error > 0)
+		if ((error = read(fd, buff[fd], BUFF_SIZE)) > 0)
 		{
 			temp = *line;
-			if (!(*line = ft_strjoin(*line, buff[fd])))
+			*line = ft_strjoin(*line, buff[fd]);
+			free(temp);
+			if (!*line)
 				return (-1);
 			ft_bzero(buff[fd], BUFF_SIZE);
-			free(temp);
 		}
 	}
 	if (*line[0] != '\0' && error >= 0)

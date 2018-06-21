@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printbits.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/04 08:31:04 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/04 09:03:16 by jwolf            ###   ########.fr       */
+/*   Created: 2018/06/08 07:14:50 by jwolf             #+#    #+#             */
+/*   Updated: 2018/06/11 09:20:15 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_printbits(unsigned char octect)
+void	ft_putendl_c(char const *dest, char const *str)
 {
-	int				i;
-	unsigned char	bit;
-
-	i = 8;
-	while (i--)
-	{
-		bit = (octect >> i & 1) + '0';
-		write(1, &bit, 1);
-	}
+	if (dest && str)
+		ft_putendl(ft_strjoin(dest, str));
+	else if (!str)
+		ft_putendl(ft_strjoin(dest, "No string passed"));
 }

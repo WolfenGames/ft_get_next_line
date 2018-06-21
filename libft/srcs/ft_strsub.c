@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strsub(const char *s1, unsigned int start, size_t len)
 {
@@ -18,7 +18,7 @@ char	*ft_strsub(const char *s1, unsigned int start, size_t len)
 	char	*substr;
 
 	STRCHECK(s1);
-	MALLCHECK_N((substr = ft_memalloc(len + 1)));
+	MALLCHECK_N((substr = (char *)ft_memalloc(len + 1)));
 	i = 0;
 	while (len--)
 	{

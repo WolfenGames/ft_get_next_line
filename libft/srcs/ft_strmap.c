@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strmap(const char *s, char (*f)(char))
 {
@@ -22,7 +22,7 @@ char	*ft_strmap(const char *s, char (*f)(char))
 	{
 		i = 0;
 		j = ft_strlen((char *)s);
-		MALLCHECK_N((str = ft_memalloc(j + 1)));
+		MALLCHECK_N((str = (char *)ft_memalloc(j + 1)));
 		while (s[i])
 		{
 			str[i] = f(s[i]);

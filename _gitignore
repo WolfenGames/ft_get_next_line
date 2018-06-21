@@ -1,7 +1,0 @@
-libft/*.o
-libft/*.c
-libft/Makefile
-libft/author
-libft/libft.a
-libft.a
-*.o

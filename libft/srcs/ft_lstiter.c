@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	t_list	*n_lst;
 
 	MALLCHECK(lst);
-	MALLCHECK((n_lst = ft_memalloc(sizeof(n_lst))));
+	MALLCHECK((n_lst = (t_list *)ft_memalloc(sizeof(n_lst))));
 	n_lst = lst;
 	while (n_lst)
 	{

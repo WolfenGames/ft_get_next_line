@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
@@ -24,7 +24,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (NULL);
 	i = -1;
 	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	MALLCHECK_N((str = ft_memalloc(len + 1)));
+	MALLCHECK_N((str = (char *)ft_memalloc(len + 1)));
 	c1 = (char *)s1;
 	c2 = (char *)s2;
 	while (*c1)
