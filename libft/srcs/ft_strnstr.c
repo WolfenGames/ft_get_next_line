@@ -6,11 +6,11 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:24:13 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/22 09:14:31 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/18 16:50:40 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strnstr(const char *hay, const char *needle, size_t n)
 {

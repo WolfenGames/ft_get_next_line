@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 15:44:03 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/21 06:58:45 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/22 09:26:43 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@
 # define EVEN(x)		(!(x % 2))
 # define IS_SPACE(x)    (x == ' ' || x == '\t' || x== '\n')
 # define ABS(x)			((x < 0) ? (-x) : x)
+# define FD_MAX			50
+# define BUFF_SIZE		32
 
+# include <fcntl.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
 
 typedef	int			t_bool;
 typedef	struct		s_list
@@ -82,6 +84,7 @@ int					ft_strnequ(const char *s1, const char *s2, size_t n);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_wordcount(const char *s, char c);
+int					get_next_line(const int fd, char **line);
 
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlen(const char *s1);
