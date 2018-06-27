@@ -61,6 +61,5 @@ int				get_next_line(const int fd, char **line)
 		buff[fd] = ft_strnew(BUFF_SIZE + 1);
 	if (buff[fd][0] != '\0')
 		*line = ft_strcpy(*line, buff[fd]);
-	ft_bzero(buff[fd], BUFF_SIZE);
 	return (do_line(fd, line, buff));
 }
