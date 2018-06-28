@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/28 08:33:24 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/28 09:51:48 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int		do_line(const int fd, char **line, char **buff)
 
 int				get_next_line(const int fd, char **line)
 {
-	static char	*buff[1];
+	static char	*buff[10000000];
 
 	if (fd < 0 || read(fd, buff, 0) < 0 || !line ||
 		!(*line = ft_strnew(BUFF_SIZE + 1)))

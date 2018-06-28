@@ -6,24 +6,31 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 12:23:51 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/21 15:58:25 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/28 10:05:12 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int     badfiles()
+int     badfiles(int f)
 {
     int     fd;
     char    *line;
 
-    fd = -1;
+    fd = 7;
     if (get_next_line(fd, &line) > 0)
     {
         ft_putendl("Should be failing");
     }
     else
         ft_putendl("Good???");
+	
+    if (get_next_line(f, &line) > 0)
+    {
+        ft_putendl("passed");
+    }
+    else
+        ft_putendl("what???");
     return (0);
 }
 
@@ -44,13 +51,12 @@ int     main(int ac, char **av)
             ft_putendl_c("Std Line Output :: ", stdline);
             if (ft_strequ(stdline, "rbf"))
             {
-                close(0);
-                return (badfiles());
+				fd = open("t", O_RDONLY);
+                return (badfiles(fd));
             }
             if (ft_strequ(stdline, "Exit") || ft_strequ(stdline, "exit"))
             {
                 free(stdline);
-                close(0);
                 return (0);
             }
             free(stdline);
@@ -59,7 +65,8 @@ int     main(int ac, char **av)
     else
     {
         fd = open(av[1], O_RDONLY);
-        while (get_next_line(fd, &line))
+		ft_putendl_i("Fild descriptor is :: ", fd);
+        while (get_next_line(fd, &line) > 0)
         {
             temp = line;
             ft_putendl(line);
