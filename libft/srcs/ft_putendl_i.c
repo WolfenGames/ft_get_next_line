@@ -14,5 +14,13 @@
 
 void	ft_putendl_i(char const *str, int a)
 {
-	ft_putendl(ft_strjoin(str, ft_itoa(a)));
+	char	*temp;
+	char	*join;
+
+	temp = NULL;
+	join = NULL;
+	temp = join;
+	join = ft_strjoin(str, ft_itoa(a));
+	ft_putendl(join);
+	free(join);
 }

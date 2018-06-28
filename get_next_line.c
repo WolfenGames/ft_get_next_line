@@ -6,7 +6,7 @@
 /*   By: jwolf <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/28 16:10:54 by jwolf             #+#    #+#             */
-/*   Updated: 2018/06/21 07:00:00 by jwolf            ###   ########.fr       */
+/*   Updated: 2018/06/28 08:33:24 by jwolf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,15 @@ static int		do_line(const int fd, char **line, char **buff)
 	int			val;
 
 	val = 1;
-	while (!(ft_strrchr(*line, '\n')) && val > 0)
+	while (!(ft_strchr(*line, '\n')) &&
+			(val = read(fd, buff[fd], BUFF_SIZE)) > 0)
 	{
-		if ((val = read(fd, buff[fd], BUFF_SIZE)) > 0)
-		{
-			temp = *line;
-			*line = ft_strjoin(*line, buff[fd]);
-			free(temp);
-			if (!*line)
-				return (-1);
-			ft_bzero(buff[fd], BUFF_SIZE);
-		}
+		temp = *line;
+		*line = ft_strjoin(*line, buff[fd]);
+		free(temp);
+		if (!*line)
+			return (-1);
+		ft_bzero(buff[fd], BUFF_SIZE);
 	}
 	if (*line[0] != '\0' && val >= 0)
 		return (copyline(*line, buff[fd]));

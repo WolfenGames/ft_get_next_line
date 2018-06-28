@@ -11,7 +11,6 @@ SRCS = get_next_line.c test.c
 OBJ = $(SRCS:.c=.o)
 
 NAME: $(OBJ)
-	make -C libft re && make -C libft clean
 	clang $(FLAGS) -c $(SRCS)
 	clang -o $(NAME) $(FLAGS) $(LIB) $(HEAD) $(OBJ)
 
