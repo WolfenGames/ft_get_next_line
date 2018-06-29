@@ -110,7 +110,7 @@ int     main(int ac, char **av)
         while (get_next_line(fd, &line) > 0)
         {
             temp = line;
-            ft_putendl(line);
+            ft_putendl_c("Line Data :: ", line);
             free(temp);
             i++;
         }

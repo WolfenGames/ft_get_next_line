@@ -41,6 +41,7 @@ $(DIR_O)/%.o: $(DIR_S)/%.c
 
 
 $(NAME): temp $(OBJS)
+	@echo "\033[1;30;m[Linking]\033[0m"
 	@ar rcs $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
