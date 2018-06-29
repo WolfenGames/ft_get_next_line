@@ -52,9 +52,7 @@ int				get_next_line(const int fd, char **line)
 {
 	static char	*buff[1];
 
-	if (fd < 0 || read(fd, buff, 0) < 0 || !line)
-		return (-1);
-	if (!(*line = ft_strnew(BUFF_SIZE + 1)))
+	if (fd < 0 || !line || !(*line = ft_strnew(BUFF_SIZE + 1)))
 		return (-1);
 	if (!buff[fd])
 		buff[fd] = ft_strnew(BUFF_SIZE + 1);

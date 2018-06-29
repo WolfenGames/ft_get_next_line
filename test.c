@@ -33,7 +33,7 @@ int     badfiles(int f)
     else
         ft_putendl("what???");
 
-    if (get_next_line((void)0, (void *)0))
+    if (get_next_line(f, (void *)0) > 0)
     {
         ft_putendl("What??");
     }
