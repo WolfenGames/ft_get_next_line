@@ -50,6 +50,24 @@ int     badfiles(int f)
     return (0);
 }
 
+int     mp_fd(void)
+{
+    char    *line;
+
+    for(int i = -100000; i < MAX_INT; i++)
+    {
+        if (i > 3 || i < 0)
+        {
+            if (get_next_line(i, &line) > 0)
+            {
+                ft_putendl_i("BAD: Doesnt mean I am wrong       :: ", i);
+                ft_putendl_c("LINE :: Doesnt mean I am wrong    :: ", line);
+            }
+        }
+    }
+    return (0);
+}
+
 int     main(int ac, char **av)
 {
     int     fd;
@@ -78,6 +96,9 @@ int     main(int ac, char **av)
             {
                 free(stdline);
                 return (0);
+            } if (ft_strequ(stdline, "MP") || ft_strequ(stdline, "mp"))
+            {
+                return (mp_fd());
             }
             free(stdline);
         }

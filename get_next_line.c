@@ -50,9 +50,10 @@ static int		do_line(const int fd, char **line, char **buff)
 
 int				get_next_line(const int fd, char **line)
 {
-	static char	*buff[1];
+	static char	*buff[MAX_INT];
 
-	if (fd < 0 || !line || !(*line = ft_strnew(BUFF_SIZE + 1)))
+	if (fd < 0 || !line || fd > MAX_INT || read(fd, buff[fd], 0) < 0 ||
+		!(*line = ft_strnew(BUFF_SIZE + 1)))
 		return (-1);
 	if (!buff[fd])
 		buff[fd] = ft_strnew(BUFF_SIZE + 1);
